@@ -1,6 +1,9 @@
 from validator import validate_env_file
+from scanner import scanner
 
+reuslts = []
 
-results = validate_env_file("../.env")
+reuslts.append(validate_env_file("../fixtures/secrets.env"))
+reuslts.append(scanner("../fixtures/secrets.env"))
 
-print(results)
+print(reuslts)
