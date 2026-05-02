@@ -1,16 +1,13 @@
-from pathlib import Path
+from file_checker import resolve_file_path
 from patterns import PATTERNS
 import re
 
 
-def scanner(filepath: str) -> list[dict]:
+def scan_env_file(filepath: str) -> list[dict]:
     findings = []
-    path = Path(filepath)
-
-    if not path.exists():
-        return [
-            {"line": 0, "severity": "error", "message": f"File not found: {filepath}"}
-        ]
+    path, resolve_errors = resolve_file_path(filepath)
+    if path is None:
+        return resolve_errors
 
     with open(path, "r") as file:
         lines = file.readlines()

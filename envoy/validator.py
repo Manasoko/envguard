@@ -1,4 +1,4 @@
-from pathlib import Path
+from file_checker import resolve_file_path
 
 source = "validation"
 
@@ -6,13 +6,9 @@ source = "validation"
 def validate_env_file(filepath: str) -> list[dict]:
     findings = []
     seen_keys = set()
-    path = Path(filepath)
-
-    if not path.exists():
-        print(f"Validating .env file at: {filepath}")
-        return [
-            {"line": 0, "severity": "error", "message": f"File not found: {filepath}"}
-        ]
+    path, resolve_errors = resolve_file_path(filepath)
+    if path is None:
+        return resolve_errors
 
     with open(path, "r") as file:
         lines = file.readlines()

@@ -1,9 +1,12 @@
 from validator import validate_env_file
-from scanner import scanner
+from scanner import scan_env_file
+from differ import diff_env_files
 
-reuslts = []
+results = []
 
-reuslts.append(validate_env_file("../fixtures/secrets.env"))
-reuslts.append(scanner("../fixtures/secrets.env"))
+results.append(validate_env_file("../fixtures/secrets.env"))
+results.append(scan_env_file("../fixtures/secrets.env"))
+results.append(diff_env_files("../fixtures/test.env", "../fixtures/test.env.example"))
 
-print(reuslts)
+for result in results:
+    print(result)
