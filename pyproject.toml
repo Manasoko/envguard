@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "envguard"
+version = "0.1.0"
+description = "A CLI tool for auditing .env files and scanning git history for leaked secrets"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+envguard = "envguard.main:main"
