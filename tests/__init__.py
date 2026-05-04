@@ -6,7 +6,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 try:
-    import envoy as _envoy
-    sys.modules.setdefault("envguard", _envoy)
+    import envguard as _envguard
+    sys.modules.setdefault("envguard", _envguard)
 except ImportError:
     pass

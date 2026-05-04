@@ -1,18 +1,18 @@
 import sys
 import unittest
 from pathlib import Path
-from envoy.differ import diff_env_files
+from envguard.differ import diff_env_files
 
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-PACKAGE_ROOT = ROOT / "envoy"
+PACKAGE_ROOT = ROOT / "envguard"
 if str(PACKAGE_ROOT) not in sys.path:
     sys.path.insert(0, str(PACKAGE_ROOT))
 
 try:
-    import envoy as _envoy
-    sys.modules.setdefault("envguard", _envoy)
+    import envguard as _envguard
+    sys.modules.setdefault("envguard", _envguard)
 except ImportError:
     pass
 

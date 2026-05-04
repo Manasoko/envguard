@@ -110,6 +110,18 @@ PATTERNS = [
         "severity": "error",
         "confidence": "high",
     },
+    {
+        "name": "Supabase API Key",
+        "pattern": r"\beyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\b",
+        "severity": "error",
+        "confidence": "high",
+    },
+    {
+        "name": "Gmail App Password",
+        "pattern": r"\b[a-z]{4}\s[a-z]{4}\s[a-z]{4}\s[a-z]{4}\b",
+        "severity": "error",
+        "confidence": "high",
+    },
     # ========================
     # WARNING
     # ========================
