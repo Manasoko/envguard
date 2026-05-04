@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.backends.legacy:build"
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "envguard"
@@ -8,6 +8,10 @@ version = "0.1.0"
 description = "A CLI tool for auditing .env files and scanning git history for leaked secrets"
 requires-python = ">=3.11"
 dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["envguard*"]
 
 [project.scripts]
 envguard = "envguard.main:main"

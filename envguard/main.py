@@ -1,10 +1,10 @@
 import argparse
 
-from differ import diff_env_files
-from formatter import format_json, format_text
-from git_scanner import scan_git_history
-from scanner import scan_env_file
-from validator import validate_env_file
+from .differ import diff_env_files
+from .formatter import format_json, format_text
+from .git_scanner import scan_git_history
+from .scanner import scan_env_file
+from .validator import validate_env_file
 
 findings: list[dict] = []
 
@@ -68,8 +68,8 @@ parser.add_argument(
     help="Filter logs by minimum severity: 'info', 'warning', or 'error' (default: info)",
 )
 
-
-if __name__ == "__main__":
+def main():
+    findings: list[dict] = []
     args = parser.parse_args()
 
     if args.command == "validate":
@@ -88,3 +88,8 @@ if __name__ == "__main__":
         format_json(findings, min_severity=args.severity)
     else:
         format_text(findings, min_severity=args.severity)
+
+
+if __name__ == "__main__":
+    main()
+
