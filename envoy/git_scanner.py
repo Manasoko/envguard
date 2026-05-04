@@ -1,6 +1,6 @@
 import subprocess
 import re
-from patterns import PATTERNS
+from .patterns import PATTERNS
 
 
 def scan_git_history() -> list[dict]:

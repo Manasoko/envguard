@@ -1,4 +1,4 @@
-from file_checker import resolve_file_path
+from .file_checker import resolve_file_path
 
 source = "validation"
 

@@ -1,5 +1,5 @@
-from file_checker import resolve_file_path
-from patterns import PATTERNS
+from .file_checker import resolve_file_path
+from .patterns import PATTERNS
 import re
 
 

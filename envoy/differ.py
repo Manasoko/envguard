@@ -1,4 +1,4 @@
-from file_checker import resolve_file_path
+from .file_checker import resolve_file_path
 
 
 def diff_env_files(main_env: str, other_env: str) -> list[dict]:
